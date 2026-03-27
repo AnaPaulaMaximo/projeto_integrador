@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSoft - Relatórios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner-app">
+        <aside class="barra-lateral">
+            <div class="logotipo">
+                <div class="icone-logotipo"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                    <h2>EvaluaSoft</h2>
+                    <span>INTELLIGENCE SYSTEM</span>
+                </div>
+            </div>
+
+            <nav class="menu-navegacao">
+                <a href="dashboard.html" class="item-navegacao"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                <a href="index.html" class="item-navegacao"><i class="fa-solid fa-users"></i> Colaboradores</a>
+                <a href="avaliacoes.html" class="item-navegacao"><i class="fa-solid fa-clipboard-check"></i> Avaliações</a>
+                <a href="relatorios.html" class="item-navegacao ativo"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+            </nav>
+
+            <button id="btnNovoRelatorio" class="btn-primario btn-novo"><i class="fa-solid fa-plus"></i> Novo Relatório</button>
+
+            <div class="menu-inferior">
+                <a href="#" class="item-navegacao"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="conteudo-principal">
+            <header class="barra-superior">
+                <div class="barra-superior-esq">
+                    <h1>Central de Relatórios</h1>
+                </div>
+                <div class="barra-superior-dir">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Perfil" class="foto-perfil">
+                </div>
+            </header>
+
+            <h3 style="margin-bottom: 16px; font-size: 1.1rem; font-weight: 600;">Relatórios Recentes</h3>
+            <div class="grade-painel">
+                <div class="cartao" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="cabecalho-cartao" style="margin-bottom: 8px;">
+                            <h3 style="font-size: 1rem;">Desempenho da Equipe - Q1</h3>
+                            <span class="emblema nota-azul">PDF</span>
+                        </div>
+                        <p class="texto-suave" style="font-size: 0.9rem; line-height: 1.5;">Análise consolidada das competências e resultados do time de desenvolvimento no primeiro trimestre.</p>
+                    </div>
+                    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--borda); display: flex; justify-content: space-between; align-items: center;">
+                        <span class="texto-suave" style="font-size: 0.8rem;"><i class="fa-regular fa-calendar"></i> Gerado hoje</span>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-secundario" title="Baixar"><i class="fa-solid fa-download"></i></button>
+                            <button class="btn-primario">Visualizar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cartao" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="cabecalho-cartao" style="margin-bottom: 8px;">
+                            <h3 style="font-size: 1rem;">Mapa de Soft Skills (Geral)</h3>
+                            <span class="emblema nota-verde">Excel</span>
+                        </div>
+                        <p class="texto-suave" style="font-size: 0.9rem; line-height: 1.5;">Planilha detalhada com o mapeamento comportamental e gaps de habilidades da equipe.</p>
+                    </div>
+                    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--borda); display: flex; justify-content: space-between; align-items: center;">
+                        <span class="texto-suave" style="font-size: 0.8rem;"><i class="fa-regular fa-calendar"></i> Gerado em 12/03/2026</span>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-secundario" title="Baixar"><i class="fa-solid fa-download"></i></button>
+                            <button class="btn-primario">Visualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cartao cartao-tabela">
+                <div class="cabecalho-cartao cabecalho-tabela">
+                    <div>
+                        <h3>Histórico de Relatórios</h3>
+                        <p class="texto-suave">Acesse todos os relatórios gerados anteriormente</p>
+                    </div>
+                    <div class="acoes-tabela">
+                        <input type="text" class="controle-formulario" placeholder="Buscar relatório..." style="width: 200px; padding: 8px 12px;">
+                        <button class="btn-secundario"><i class="fa-solid fa-filter"></i> Filtrar</button>
+                    </div>
+                </div>
+
+                <table class="tabela-classificacao">
+                    <thead>
+                        <tr>
+                            <th>NOME DO RELATÓRIO</th>
+                            <th>TIPO</th>
+                            <th>DATA DE GERAÇÃO</th>
+                            <th>FORMATO</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Avaliação 360º - Consolidado</strong></td>
+                            <td>Avaliação 360º</td>
+                            <td>28/02/2026</td>
+                            <td><span class="emblema nota-azul">PDF</span></td>
+                            <td>
+                                <a href="#" class="link-azul" style="margin-right: 12px;">Abrir</a>
+                                <a href="#" class="texto-suave"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evolução PDI - Semestral</strong></td>
+                            <td>Desempenho da Equipe</td>
+                            <td>15/01/2026</td>
+                            <td><span class="emblema nota-verde">Excel</span></td>
+                            <td>
+                                <a href="#" class="link-azul" style="margin-right: 12px;">Abrir</a>
+                                <a href="#" class="texto-suave"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pesquisa de Clima - Resumo</strong></td>
+                            <td>Mapeamento de Soft Skills</td>
+                            <td>10/12/2025</td>
+                            <td><span class="emblema nota-azul">PDF</span></td>
+                            <td>
+                                <a href="#" class="link-azul" style="margin-right: 12px;">Abrir</a>
+                                <a href="#" class="texto-suave"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="conteiner-paginacao">
+                    <span class="texto-suave">Mostrando 1-3 de 15 relatórios</span>
+                    <div class="paginacao">
+                        <button><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="ativo">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalRelatorio" class="modal-fundo">
+        <div class="modal-conteudo">
+            <div class="cabecalho-modal">
+                <h3>Gerar Novo Relatório</h3>
+                <button class="btn-fechar" id="iconeFecharRelatorio"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="corpo-modal">
+                <div class="grupo-formulario">
+                    <label for="tipoRelatorio">Tipo de Relatório</label>
+                    <select id="tipoRelatorio" class="controle-formulario">
+                        <option>Desempenho da Equipe</option>
+                        <option>Mapeamento de Soft Skills</option>
+                        <option>Avaliação 360º</option>
+                    </select>
+                </div>
+                <div class="grupo-formulario">
+                    <label for="periodoRelatorio">Período de Avaliação</label>
+                    <input type="month" id="periodoRelatorio" class="controle-formulario">
+                </div>
+            </div>
+            <div class="rodape-modal">
+                <button class="btn-secundario" id="btnCancelarRelatorio">Cancelar</button>
+                <button class="btn-primario">Gerar Relatório</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

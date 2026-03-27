@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSoft - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner-app">
+        
+        <aside class="barra-lateral">
+            <div class="logotipo">
+                <div class="icone-logotipo"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                    <h2>EvaluaSoft</h2>
+                    <span>INTELLIGENCE SYSTEM</span>
+                </div>
+            </div>
+
+            <nav class="menu-navegacao">
+                <a href="dashboard.html" class="item-navegacao ativo"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                <a href="index.html" class="item-navegacao"><i class="fa-solid fa-users"></i> Colaboradores</a>
+                <a href="avaliacoes.html" class="item-navegacao"><i class="fa-solid fa-clipboard-check"></i> Avaliações</a>
+                <a href="relatorios.html" class="item-navegacao"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+            </nav>
+
+            <button class="btn-primario btn-novo"><i class="fa-solid fa-plus"></i> Novo Relatório</button>
+
+            <div class="menu-inferior">
+                <a href="#" class="item-navegacao"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="conteudo-principal">
+            
+            <header class="barra-superior">
+                <div class="barra-superior-esq">
+                    <h1>Meu Desempenho</h1>
+                </div>
+                <div class="barra-superior-dir" style="gap: 24px;">
+                    <div class="search-bar" style="background: white; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--borda); display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-magnifying-glass texto-suave"></i>
+                        <input type="text" placeholder="Buscar no sistema..." style="border: none; outline: none; font-family: 'Inter';">
+                    </div>
+                    <i class="fa-regular fa-bell btn-icone"></i>
+                    <i class="fa-solid fa-gear btn-icone"></i>
+                    <div class="user-profile" style="display: flex; align-items: center; gap: 12px; text-align: right;">
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.9rem;">João Silva</div>
+                            <div style="font-size: 0.8rem; color: var(--texto-suave);">Analista Sênior</div>
+                        </div>
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Perfil" class="foto-perfil">
+                    </div>
+                </div>
+            </header>
+
+            <div class="banner">
+                <div class="banner-info">
+                    <div class="banner-icon">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <div class="banner-text">
+                        <h2>Olá, João!</h2>
+                        <p>O ciclo de avaliação Q3/2026 está aberto até sexta-feira.</p>
+                    </div>
+                </div>
+                <button class="btn-primario">Ver Prazos</button>
+            </div>
+
+            <div class="dashboard-grid">
+                
+                <div class="col-left">
+                    <div class="cartao">
+                        <div class="cabecalho-cartao" style="margin-bottom: 24px;">
+                            <div>
+                                <span class="card-title" style="font-weight: 600; font-size: 1.1rem;">Seu Resultado Anterior</span><br>
+                                <span class="card-subtitle" style="font-size: 0.85rem; color: var(--texto-suave);">Ciclo Q2/2026 • Fechamento Julho</span>
+                            </div>
+                            <i class="fa-solid fa-ellipsis-vertical btn-icone"></i>
+                        </div>
+
+                        <div class="progress-group">
+                            <div class="progress-labels">
+                                <span>Autoavaliação</span>
+                                <span class="val blue">8.5/10</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue"></div></div>
+                        </div>
+
+                        <div class="progress-group">
+                            <div class="progress-labels">
+                                <span>Avaliação do Líder</span>
+                                <span class="val green">9.0/10</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green"></div></div>
+                        </div>
+
+                        <div class="progress-group">
+                            <div class="progress-labels">
+                                <span>Média 360° (Pares)</span>
+                                <span class="val yellow">7.8/10</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-yellow"></div></div>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-label">Média Global</div>
+                                <div class="stat-value">8.4</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Percentil</div>
+                                <div class="stat-value">Top 15%</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Status</div>
+                                <div class="stat-value green">Excelente</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cartao">
+                        <div class="cabecalho-cartao">
+                            <span style="font-weight: 600; font-size: 1.1rem;">Evolução Histórica</span>
+                            <div class="chart-legend"><span></span> Pontuação</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="evolutionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-right">
+                    <div class="cartao">
+                        <div class="cabecalho-cartao">
+                            <span style="font-weight: 600; font-size: 1.1rem;"><i class="fa-solid fa-clipboard-check" style="color: var(--primaria); margin-right: 8px;"></i> Tarefas Pendentes</span>
+                        </div>
+                        
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="custom-checkbox"></div>
+                                <div class="task-info">
+                                    <h4>Autoavaliação de Comunicação</h4>
+                                    <p>Expira em 2 dias</p>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <div class="custom-checkbox"></div>
+                                <div class="task-info">
+                                    <h4>Avaliar Maria (360°)</h4>
+                                    <p>Feedback de Pares</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-primario btn-full" style="width: 100%; justify-content: center;">Iniciar Avaliações <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i></button>
+                    </div>
+
+                    <div class="cartao">
+                        <div class="cabecalho-cartao">
+                            <span style="font-weight: 600; font-size: 1.1rem;">PDI</span>
+                            <i class="fa-solid fa-pen-to-square btn-icone" style="color: var(--primaria);"></i>
+                        </div>
+
+                        <div class="pdi-list">
+                            <div class="pdi-item">
+                                <div class="pdi-header">
+                                    <span class="pdi-title">Resiliência</span>
+                                    <span class="badge warning">Atenção</span>
+                                </div>
+                                <p class="pdi-quote">"Foque em técnicas de gestão de tempo para reduzir estresse em prazos curtos."</p>
+                                <div class="pdi-suggestion">
+                                    <i class="fa-solid fa-book"></i> Sugestão: Curso de Gestão de Conflitos
+                                </div>
+                            </div>
+
+                            <div class="pdi-item">
+                                <div class="pdi-header">
+                                    <span class="pdi-title">Gestão de Dados</span>
+                                    <span class="badge critical">Crítico</span>
+                                </div>
+                                <p class="pdi-quote">"Melhorar a precisão no preenchimento dos relatórios de KPIs trimestrais."</p>
+                                <div class="pdi-suggestion">
+                                    <i class="fa-solid fa-circle-play"></i> Sugestão: Workshop de Advanced Excel
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-secundario" style="width: 100%;"><i class="fa-solid fa-file-pdf"></i> Exportar Relatório PDF</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
