@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSoft - Meu Desempenho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-comment-dots"></i></div>
+            <div class="logo-texto">
+                <strong>SoftGroup</strong>
+                <span>INTELLIGENCE SYSTEM</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="ativo"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+            <a href="#"><i class="fa-solid fa-clipboard-check"></i> Avaliações</a>
+            <a href="#"><i class="fa-solid fa-user-group"></i> Colaboradores</a>
+            <a href="#"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+            <a href="#"><i class="fa-solid fa-gear"></i> Configurações</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-novo"><i class="fa-solid fa-plus"></i> Novo Relatório</button>
+            <a href="#"><i class="fa-regular fa-circle-question"></i> Suporte</a>
+            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="topbar-left">
+                <h1>Meu Desempenho</h1>
+                <div class="busca">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Buscar no sistema...">
+                </div>
+            </div>
+            
+            <div class="topbar-right">
+                <i class="fa-regular fa-bell icone-aviso"></i>
+                <i class="fa-solid fa-gear icone-aviso"></i>
+                <div class="perfil">
+                    <div class="perfil-texto">
+                        <span class="nome">João Silva</span>
+                        <span class="cargo">Analista Sênior</span>
+                    </div>
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Perfil">
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <div class="banner">
+                <div class="banner-info">
+                    <div class="banner-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                    <div>
+                        <h2>Olá, João!</h2>
+                        <p>O ciclo de avaliação Q3/2026 está aberto até sexta-feira.</p>
+                    </div>
+                </div>
+                <button class="btn-prazos">Ver Prazos</button>
+            </div>
+
+            <div class="grid-colunas">
+                <div class="coluna-esquerda">
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3>Seu Resultado Anterior</h3>
+                                <p class="subtitulo">Ciclo Q2/2026 • Fechamento Julho</p>
+                            </div>
+                            <i class="fa-solid fa-ellipsis-vertical icone-cinza"></i>
+                        </div>
+
+                        <div class="progresso">
+                            <div class="progresso-texto">
+                                <span>Autoavaliação</span>
+                                <span class="nota-azul">8.5/10</span>
+                            </div>
+                            <div class="barra-fundo"><div class="barra-fill azul" style="width: 85%;"></div></div>
+                        </div>
+
+                        <div class="progresso">
+                            <div class="progresso-texto">
+                                <span>Avaliação do Líder</span>
+                                <span class="nota-verde">9.0/10</span>
+                            </div>
+                            <div class="barra-fundo"><div class="barra-fill verde" style="width: 90%;"></div></div>
+                        </div>
+
+                        <div class="progresso">
+                            <div class="progresso-texto">
+                                <span>Média 360º (Pares)</span>
+                                <span class="nota-amarela">7.8/10</span>
+                            </div>
+                            <div class="barra-fundo"><div class="barra-fill amarela" style="width: 78%;"></div></div>
+                        </div>
+
+                        <div class="metricas">
+                            <div class="metrica-box">
+                                <span>MÉDIA GLOBAL</span>
+                                <strong>8.4</strong>
+                            </div>
+                            <div class="metrica-box">
+                                <span>PERCENTIL</span>
+                                <strong>Top 15%</strong>
+                            </div>
+                            <div class="metrica-box">
+                                <span>STATUS</span>
+                                <strong class="nota-verde">Excelente</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Evolução Histórica</h3>
+                        <div class="grafico-simples">
+                            <div class="legenda">Pontuação</div>
+                            <svg viewBox="0 0 500 120" class="linha-grafico">
+                                <line x1="40" y1="100" x2="460" y2="100" stroke="#e5e7eb" />
+                                <path d="M 60 80 Q 150 50 220 30 T 350 60 T 460 20" fill="none" stroke="#0b57d0" stroke-width="3"/>
+                                <circle cx="60" cy="80" r="4" fill="#0b57d0" />
+                                <circle cx="220" cy="30" r="4" fill="#0b57d0" />
+                                <circle cx="350" cy="60" r="4" fill="#0b57d0" />
+                                <circle cx="460" cy="20" r="4" fill="#0b57d0" />
+                                <text x="60" y="115" font-size="10" fill="#6b7280" text-anchor="middle">1/2025</text>
+                                <text x="220" y="115" font-size="10" fill="#6b7280" text-anchor="middle">2/2025</text>
+                                <text x="350" y="115" font-size="10" fill="#6b7280" text-anchor="middle">1/2026</text>
+                                <text x="460" y="115" font-size="10" fill="#6b7280" text-anchor="middle">2/2026</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="coluna-direita">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="titulo-icone"><i class="fa-solid fa-list-check"></i> Tarefas Pendentes</h3>
+                        </div>
+
+                        <div class="tarefa" onclick="marcarTarefa(this)">
+                            <div class="checkbox"></div>
+                            <div class="tarefa-info">
+                                <h4>Autoavaliação de Comunicação</h4>
+                                <p>Expira em 2 dias</p>
+                            </div>
+                        </div>
+
+                        <div class="tarefa" onclick="marcarTarefa(this)">
+                            <div class="checkbox"></div>
+                            <div class="tarefa-info">
+                                <h4>Avaliar Maria (360º)</h4>
+                                <p>Feedback de Pares</p>
+                            </div>
+                        </div>
+
+                        <button class="btn-block">Iniciar Avaliações <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>PDI</h3>
+                            <i class="fa-regular fa-pen-to-square icone-azul"></i>
+                        </div>
+
+                        <div class="pdi-item">
+                            <div class="pdi-header">
+                                <h4>Resiliência</h4>
+                                <span class="tag tag-atencao">ATENÇÃO</span>
+                            </div>
+                            <p>"Foque em técnicas de gestão de tempo para reduzir estresse em prazos curtos."</p>
+                            <span class="sugestao"><i class="fa-solid fa-fire"></i> Sugestão: Curso de Gestão de Conflitos</span>
+                        </div>
+
+                        <div class="pdi-item">
+                            <div class="pdi-header">
+                                <h4>Gestão de Dados</h4>
+                                <span class="tag tag-critico">CRÍTICO</span>
+                            </div>
+                            <p>"Melhorar a precisão no preenchimento dos relatórios de KPIs trimestrais."</p>
+                            <span class="sugestao"><i class="fa-solid fa-bullseye"></i> Sugestão: Workshop de Advanced Excel</span>
+                        </div>
+
+                        <button class="btn-outline"><i class="fa-regular fa-file-pdf"></i> Exportar Relatório PDI</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
