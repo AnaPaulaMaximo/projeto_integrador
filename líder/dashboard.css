@@ -32,7 +32,7 @@ body {
 
 /* BASE: BARRA LATERAL E CABEÇALHO */
 .barra-lateral {
-  width: 260px;
+  width: 220px;
   background-color: var(--fundo-lateral);
   border-right: 1px solid var(--borda);
   display: flex;
@@ -74,7 +74,9 @@ body {
 .item-navegacao {
   text-decoration: none;
   color: var(--texto-suave);
-  padding: 12px 24px;
+  padding: 10px 16px;
+  margin: 0 16px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -88,12 +90,10 @@ body {
 .item-navegacao.ativo {
   background-color: var(--fundo-ativo);
   color: var(--primaria);
-  border-left: 4px solid var(--primaria);
-  padding-left: 20px;
 }
 .btn-novo {
-  margin: 24px;
-  width: calc(100% - 48px);
+  margin: 16px;
+  width: calc(100% - 32px);
 }
 .menu-inferior {
   border-top: 1px solid var(--borda);

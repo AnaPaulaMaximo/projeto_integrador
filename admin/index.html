@@ -3,197 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EvaluaSoft - Meu Desempenho</title>
+    <title>EvaluaSoft - Admin Dashboard</title>
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <aside class="sidebar">
-        <div class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-comment-dots"></i></div>
-            <div class="logo-texto">
-                <strong>SoftGroup</strong>
-                <span>INTELLIGENCE SYSTEM</span>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1 class="logo-title">EvaluaSoft</h1>
+                <span class="logo-subtitle">INTELLIGENCE SYSTEM</span>
             </div>
-        </div>
 
-        <nav class="menu">
-            <a href="#" class="ativo"><i class="fa-solid fa-border-all"></i> Dashboard</a>
-            <a href="#"><i class="fa-solid fa-clipboard-check"></i> Avaliações</a>
-            <a href="#"><i class="fa-solid fa-user-group"></i> Colaboradores</a>
-            <a href="#"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
-            <a href="#"><i class="fa-solid fa-gear"></i> Configurações</a>
-        </nav>
+            <nav class="menu">
+                <a href="index.html" class="ativo">
+                    <div class="menu-content"><i class="fa-solid fa-border-all"></i> Dashboard</div>
+                    <div class="indicador"></div>
+                </a>
+                <a href="avaliacoes.html">
+                    <div class="menu-content"><i class="fa-solid fa-certificate"></i> Avaliações</div>
+                </a>
+                <a href="colaboradores.html">
+                    <div class="menu-content"><i class="fa-solid fa-user-group"></i> Colaboradores</div>
+                </a>
+                <a href="relatorios.html">
+                    <div class="menu-content"><i class="fa-solid fa-chart-simple"></i> Relatórios</div>
+                </a>
+                <a href="configuracoes.html">
+                    <div class="menu-content"><i class="fa-solid fa-gear"></i> Configurações</div>
+                </a>
+            </nav>
 
-        <div class="sidebar-footer">
-            <button class="btn-novo"><i class="fa-solid fa-plus"></i> Novo Relatório</button>
-            <a href="#"><i class="fa-regular fa-circle-question"></i> Suporte</a>
-            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
-        </div>
-    </aside>
-
-    <main class="main-content">
-        <header class="topbar">
-            <div class="topbar-left">
-                <h1>Meu Desempenho</h1>
-                <div class="busca">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Buscar no sistema...">
-                </div>
+            <div class="sidebar-footer">
+                <button class="btn-novo"><i class="fa-solid fa-box-archive"></i> Novo Relatório</button>
+                <a href="#"><i class="fa-regular fa-circle-question"></i> Suporte</a>
+                <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
             </div>
-            
-            <div class="topbar-right">
-                <i class="fa-regular fa-bell icone-aviso"></i>
-                <i class="fa-solid fa-gear icone-aviso"></i>
-                <div class="perfil">
-                    <div class="perfil-texto">
-                        <span class="nome">João Silva</span>
-                        <span class="cargo">Analista Sênior</span>
-                    </div>
-                    <img src="https://i.pravatar.cc/150?img=11" alt="Perfil">
-                </div>
-            </div>
-        </header>
+        </aside>
 
-        <div class="dashboard">
-            <div class="banner">
-                <div class="banner-info">
-                    <div class="banner-icon"><i class="fa-regular fa-calendar-check"></i></div>
-                    <div>
-                        <h2>Olá, João!</h2>
-                        <p>O ciclo de avaliação Q3/2026 está aberto até sexta-feira.</p>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h2>Dashboard Geral</h2>
+                    <div class="busca">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Buscar...">
                     </div>
                 </div>
-                <button class="btn-prazos">Ver Prazos</button>
-            </div>
+                
+                <div class="topbar-right">
+                    <button class="btn-adicionar"><i class="fa-solid fa-user-plus"></i> Adicionar Usuário</button>
+                    <div class="icones-acoes">
+                        <i class="fa-solid fa-bell"></i>
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <img src="https://i.pravatar.cc/150?img=68" alt="Perfil" class="avatar">
+                </div>
+            </header>
 
-            <div class="grid-colunas">
-                <div class="coluna-esquerda">
-                    <div class="card">
-                        <div class="card-header">
-                            <div>
-                                <h3>Seu Resultado Anterior</h3>
-                                <p class="subtitulo">Ciclo Q2/2026 • Fechamento Julho</p>
-                            </div>
-                            <i class="fa-solid fa-ellipsis-vertical icone-cinza"></i>
+            <div class="dashboard-content">
+                <!-- Stats Row -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Total Colaboradores</span>
+                            <div class="stat-icon light-blue"><i class="fa-solid fa-user-group"></i></div>
                         </div>
+                        <strong class="stat-value text-blue">342</strong>
+                    </div>
 
-                        <div class="progresso">
-                            <div class="progresso-texto">
-                                <span>Autoavaliação</span>
-                                <span class="nota-azul">8.5/10</span>
-                            </div>
-                            <div class="barra-fundo"><div class="barra-fill azul" style="width: 85%;"></div></div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Ciclo Atual</span>
+                            <span class="tag tag-aberto">ABERTO</span>
                         </div>
+                        <strong class="stat-value">Q3 / 2026</strong>
+                    </div>
 
-                        <div class="progresso">
-                            <div class="progresso-texto">
-                                <span>Avaliação do Líder</span>
-                                <span class="nota-verde">9.0/10</span>
-                            </div>
-                            <div class="barra-fundo"><div class="barra-fill verde" style="width: 90%;"></div></div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Adesão 360°</span>
+                            <span class="diferenca positivo">+2.4%</span>
                         </div>
-
-                        <div class="progresso">
-                            <div class="progresso-texto">
-                                <span>Média 360º (Pares)</span>
-                                <span class="nota-amarela">7.8/10</span>
-                            </div>
-                            <div class="barra-fundo"><div class="barra-fill amarela" style="width: 78%;"></div></div>
-                        </div>
-
-                        <div class="metricas">
-                            <div class="metrica-box">
-                                <span>MÉDIA GLOBAL</span>
-                                <strong>8.4</strong>
-                            </div>
-                            <div class="metrica-box">
-                                <span>PERCENTIL</span>
-                                <strong>Top 15%</strong>
-                            </div>
-                            <div class="metrica-box">
-                                <span>STATUS</span>
-                                <strong class="nota-verde">Excelente</strong>
+                        <div class="adesao-valor">
+                            <strong class="stat-value">82%</strong>
+                            <div class="progress-bar-container w-full">
+                                <div class="progress-bar blue" style="width: 82%;"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <h3>Evolução Histórica</h3>
-                        <div class="grafico-simples">
-                            <div class="legenda">Pontuação</div>
-                            <svg viewBox="0 0 500 120" class="linha-grafico">
-                                <line x1="40" y1="100" x2="460" y2="100" stroke="#e5e7eb" />
-                                <path d="M 60 80 Q 150 50 220 30 T 350 60 T 460 20" fill="none" stroke="#0b57d0" stroke-width="3"/>
-                                <circle cx="60" cy="80" r="4" fill="#0b57d0" />
-                                <circle cx="220" cy="30" r="4" fill="#0b57d0" />
-                                <circle cx="350" cy="60" r="4" fill="#0b57d0" />
-                                <circle cx="460" cy="20" r="4" fill="#0b57d0" />
-                                <text x="60" y="115" font-size="10" fill="#6b7280" text-anchor="middle">1/2025</text>
-                                <text x="220" y="115" font-size="10" fill="#6b7280" text-anchor="middle">2/2025</text>
-                                <text x="350" y="115" font-size="10" fill="#6b7280" text-anchor="middle">1/2026</text>
-                                <text x="460" y="115" font-size="10" fill="#6b7280" text-anchor="middle">2/2026</text>
-                            </svg>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Pendências</span>
+                            <div class="stat-icon light-red"><i class="fa-solid fa-triangle-exclamation"></i></div>
                         </div>
+                        <strong class="stat-value text-red">15</strong>
                     </div>
                 </div>
 
-                <div class="coluna-direita">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="titulo-icone"><i class="fa-solid fa-list-check"></i> Tarefas Pendentes</h3>
-                        </div>
-
-                        <div class="tarefa" onclick="marcarTarefa(this)">
-                            <div class="checkbox"></div>
-                            <div class="tarefa-info">
-                                <h4>Autoavaliação de Comunicação</h4>
-                                <p>Expira em 2 dias</p>
+                <!-- Main Grid -->
+                <div class="main-grid">
+                    <div class="col-left">
+                        <!-- Tabela de Gestão de Ciclos -->
+                        <div class="card p-0">
+                            <div class="card-header p-24 pb-0">
+                                <h3>Tabela de Gestão de Ciclos</h3>
+                                <a href="#" class="link-add"><i class="fa-solid fa-plus"></i> Novo Ciclo</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table-ciclos">
+                                    <thead>
+                                        <tr>
+                                            <th>NOME DO CICLO</th>
+                                            <th>DATA INÍCIO</th>
+                                            <th>DATA FINAL</th>
+                                            <th>STATUS</th>
+                                            <th>PROGRESSO</th>
+                                            <th>AÇÕES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Avaliação<br>Q3 2026</strong></td>
+                                            <td class="text-gray">01 Jul,<br>2026</td>
+                                            <td class="text-gray">30 Set,<br>2026</td>
+                                            <td><span class="status-badge status-aberto">Em<br>Aberto</span></td>
+                                            <td>
+                                                <div class="progress-wrapper">
+                                                    <div class="pb-container"><div class="pb-fill blue" style="width: 45%;"></div></div>
+                                                    <span class="progress-text">45% concluído</span>
+                                                </div>
+                                            </td>
+                                            <td><i class="fa-solid fa-ellipsis-vertical action-dots"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Feedback<br>Semestral</strong></td>
+                                            <td class="text-gray">01 Jan,<br>2026</td>
+                                            <td class="text-gray">15 Jun,<br>2026</td>
+                                            <td><span class="status-badge status-concluido">Concluído</span></td>
+                                            <td>
+                                                <div class="progress-wrapper">
+                                                    <div class="pb-container"><div class="pb-fill gray" style="width: 100%;"></div></div>
+                                                    <span class="progress-text">100% concluído</span>
+                                                </div>
+                                            </td>
+                                            <td><i class="fa-solid fa-ellipsis-vertical action-dots"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Novos Talentos<br>Tech</strong></td>
+                                            <td class="text-gray">15 Set,<br>2026</td>
+                                            <td class="text-gray">15 Out,<br>2026</td>
+                                            <td><span class="status-badge status-agendado">Agendado</span></td>
+                                            <td>
+                                                <div class="progress-wrapper">
+                                                    <div class="pb-container"><div class="pb-fill light" style="width: 0%;"></div></div>
+                                                    <span class="progress-text">0% concluído</span>
+                                                </div>
+                                            </td>
+                                            <td><i class="fa-solid fa-ellipsis-vertical action-dots"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="link-footer">Ver todos os ciclos de avaliação</a>
                             </div>
                         </div>
 
-                        <div class="tarefa" onclick="marcarTarefa(this)">
-                            <div class="checkbox"></div>
-                            <div class="tarefa-info">
-                                <h4>Avaliar Maria (360º)</h4>
-                                <p>Feedback de Pares</p>
+                        <!-- Insight Cards -->
+                        <div class="insights-row mt-24">
+                            <div class="insight-card blue-bg">
+                                <div class="insight-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                                <div class="insight-text">
+                                    <h4>Dica de Gestão</h4>
+                                    <p>O ciclo Q3/2026 encerra em 15 dias. Considere enviar um lembrete automático para os 15 colaboradores pendentes para manter a taxa de adesão acima de 80%.</p>
+                                </div>
+                            </div>
+                            <div class="insight-card gray-bg">
+                                <div class="insight-icon gray-purple"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                                <div class="insight-text">
+                                    <h4>Insight de Desempenho</h4>
+                                    <p>A satisfação interna subiu 12% desde a implementação dos feedbacks trimestrais. Continue monitorando o departamento de Vendas.</p>
+                                </div>
                             </div>
                         </div>
-
-                        <button class="btn-block">Iniciar Avaliações <i class="fa-solid fa-chevron-right"></i></button>
                     </div>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>PDI</h3>
-                            <i class="fa-regular fa-pen-to-square icone-azul"></i>
-                        </div>
-
-                        <div class="pdi-item">
-                            <div class="pdi-header">
-                                <h4>Resiliência</h4>
-                                <span class="tag tag-atencao">ATENÇÃO</span>
+                    <div class="col-right">
+                        <!-- Atividade Recente -->
+                        <div class="card h-full flex-col">
+                            <div class="card-header pb-16">
+                                <h3>Atividade Recente</h3>
                             </div>
-                            <p>"Foque em técnicas de gestão de tempo para reduzir estresse em prazos curtos."</p>
-                            <span class="sugestao"><i class="fa-solid fa-fire"></i> Sugestão: Curso de Gestão de Conflitos</span>
-                        </div>
-
-                        <div class="pdi-item">
-                            <div class="pdi-header">
-                                <h4>Gestão de Dados</h4>
-                                <span class="tag tag-critico">CRÍTICO</span>
+                            <div class="activity-list flex-1">
+                                <div class="activity-item">
+                                    <img src="https://i.pravatar.cc/150?img=5" alt="Avatar" class="activity-avatar">
+                                    <div class="activity-details">
+                                        <strong>Ana Martins</strong>
+                                        <span class="activity-desc">Design UX/UI &bull; Finalizou Avaliação</span>
+                                    </div>
+                                    <span class="activity-time">2m</span>
+                                </div>
+                                <div class="activity-item">
+                                    <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" class="activity-avatar">
+                                    <div class="activity-details">
+                                        <strong>Carlos Silva</strong>
+                                        <span class="activity-desc">Engenharia &bull; Iniciou Autoavaliação</span>
+                                    </div>
+                                    <span class="activity-time">14m</span>
+                                </div>
+                                <div class="activity-item">
+                                    <img src="https://i.pravatar.cc/150?img=47" alt="Avatar" class="activity-avatar">
+                                    <div class="activity-details">
+                                        <strong>Beatriz Rocha</strong>
+                                        <span class="activity-desc">Marketing &bull; Pendência Respondida</span>
+                                    </div>
+                                    <span class="activity-time">1h</span>
+                                </div>
+                                <div class="activity-item">
+                                    <img src="https://i.pravatar.cc/150?img=52" alt="Avatar" class="activity-avatar">
+                                    <div class="activity-details">
+                                        <strong>Ricardo Gomes</strong>
+                                        <span class="activity-desc">Vendas &bull; Solicitou Feedback</span>
+                                    </div>
+                                    <span class="activity-time">3h</span>
+                                </div>
+                                <div class="activity-item">
+                                    <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" class="activity-avatar">
+                                    <div class="activity-details">
+                                        <strong>Fernanda Lima</strong>
+                                        <span class="activity-desc">RH &bull; Novo Colaborador Adicionado</span>
+                                    </div>
+                                    <span class="activity-time">5h</span>
+                                </div>
                             </div>
-                            <p>"Melhorar a precisão no preenchimento dos relatórios de KPIs trimestrais."</p>
-                            <span class="sugestao"><i class="fa-solid fa-bullseye"></i> Sugestão: Workshop de Advanced Excel</span>
+                            <div class="mt-auto pt-16 border-t mt-24">
+                                <button class="btn-outline">Ver Toda a Atividade</button>
+                            </div>
                         </div>
-
-                        <button class="btn-outline"><i class="fa-regular fa-file-pdf"></i> Exportar Relatório PDI</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 </html>

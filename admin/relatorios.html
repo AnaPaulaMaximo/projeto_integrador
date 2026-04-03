@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSoft - Relatórios (Admin)</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="relatorios.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1 class="logo-title">EvaluaSoft</h1>
+                <span class="logo-subtitle">INTELLIGENCE SYSTEM</span>
+            </div>
+
+            <nav class="menu">
+                <a href="index.html">
+                    <div class="menu-content"><i class="fa-solid fa-border-all"></i> Dashboard</div>
+                </a>
+                <a href="avaliacoes.html">
+                    <div class="menu-content"><i class="fa-solid fa-certificate"></i> Avaliações</div>
+                </a>
+                <a href="colaboradores.html">
+                    <div class="menu-content"><i class="fa-solid fa-user-group"></i> Colaboradores</div>
+                </a>
+                <a href="relatorios.html" class="ativo">
+                    <div class="menu-content"><i class="fa-solid fa-chart-simple"></i> Relatórios</div>
+                    <div class="indicador"></div>
+                </a>
+                <a href="configuracoes.html">
+                    <div class="menu-content"><i class="fa-solid fa-gear"></i> Configurações</div>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-novo"><i class="fa-solid fa-box-archive"></i> Novo Relatório</button>
+                <a href="#"><i class="fa-regular fa-circle-question"></i> Suporte</a>
+                <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h2>Relatórios</h2>
+                    <div class="busca">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Buscar...">
+                    </div>
+                </div>
+                
+                <div class="topbar-right">
+                    <button class="btn-adicionar"><i class="fa-solid fa-download"></i> Exportar Dados</button>
+                    <div class="icones-acoes">
+                        <i class="fa-solid fa-bell"></i>
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <img src="https://i.pravatar.cc/150?img=68" alt="Perfil" class="avatar">
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="insights-row" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 24px;">
+                    <div class="insight-card blue-bg" style="align-items:center; text-align:center;">
+                        <div class="insight-icon" style="margin-bottom:8px;"><i class="fa-solid fa-file-csv"></i></div>
+                        <div class="insight-text">
+                            <h4>Exportar Desempenho</h4>
+                            <p style="margin-bottom:16px;">Gere um CSV completo com a média atual de todos os colaboradores do ciclo ativo.</p>
+                            <button class="btn-novo" style="margin:0; width:100%;">Gerar CSV</button>
+                        </div>
+                    </div>
+                    <div class="insight-card gray-bg" style="align-items:center; text-align:center;">
+                        <div class="insight-icon gray-purple" style="margin-bottom:8px;"><i class="fa-solid fa-cubes"></i></div>
+                        <div class="insight-text">
+                            <h4>Mapa 9-Box</h4>
+                            <p style="margin-bottom:16px;">Analise a matriz de desempenho x potencial com os talentos mapeados.</p>
+                            <button class="btn-outline" style="margin:0; width:100%;">Gerar Visualização</button>
+                        </div>
+                    </div>
+                    <div class="insight-card" style="border:1px solid var(--border-color); align-items:center; text-align:center; background:#fff;">
+                        <div class="insight-icon" style="background-color:#f1f5f9; color:#64748b; margin-bottom:8px;"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="insight-text">
+                            <h4 style="color:var(--text-dark);">Evolução Histórica</h4>
+                            <p style="margin-bottom:16px;">Gráfico comparativo consolidando notas dos últimos 4 ciclos completos.</p>
+                            <button class="btn-outline" style="margin:0; width:100%;">Acessar Gráficos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-24">
+                    <h3>Atalhos Rápidos de Relatório</h3>
+                    <div style="display:flex; flex-direction:column; gap:12px; margin-top:24px;">
+                        <div class="activity-item" style="padding:12px 16px; border:1px solid #e5e7eb; border-radius:8px; display:flex; justify-content:space-between;">
+                            <div style="display:flex; align-items:center; gap:16px;">
+                                <i class="fa-regular fa-file-pdf text-blue" style="font-size:24px;"></i>
+                                <div class="activity-details">
+                                    <strong>Resumo Executivo RH</strong>
+                                    <span class="activity-desc">Traz principais pontos de atenção do ciclo Q2/2026</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline" style="margin:0; width:auto; border:none; color:var(--primary); padding:8px;"><i class="fa-solid fa-download"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
