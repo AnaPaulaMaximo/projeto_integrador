@@ -1,0 +1,75 @@
+@startuml CasosDeUso
+skinparam actorStyle awesome
+left to right direction
+
+' Definição dos Atores
+actor "Colaborador" as Colab
+actor "Liderança" as Lider
+actor "Administrador" as Admin
+
+rectangle "Sistema de Gestão de Soft Skills" {
+
+    ' --- Casos de Uso: Colaborador ---
+    usecase "Realizar Autoavaliação" as UC_Auto
+    usecase "Realizar Avaliação (360°)" as UC_360
+    usecase "Visualizar seu Desempenho" as UC_Desempenho
+
+    ' --- Casos de Uso: Liderança ---
+    usecase "Avaliar Subordinados" as UC_Aval_Lider
+    usecase "Visualizar Dashboard da Equipe" as UC_Dash
+    usecase "Consultar Ranking do Grupo" as UC_Ranking
+    
+    ' --- Casos de Uso: Admin ---
+    usecase "Gerenciar Usuários e Equipes" as UC_Users
+    usecase "Configurar Soft Skills e Critérios" as UC_Skills
+    usecase "Exportar Relatório (PDF/Excel)" as UC_Export
+    usecase "Gerenciar Ciclos de Avaliação" as UC_Ciclos
+    usecase "Notificar Pendências" as UC_Notif
+    usecase "Definir Níveis de Proficiência (Cores)" as UC_Cores
+    
+    ' --- Caso de Uso de Suporte ---
+    usecase "Autenticar no Sistema" as UC_Login
+}
+
+' --- Relacionamentos de Herança ---
+Lider --|> Colab : "é um"
+
+
+' --- Associações: Colaborador ---
+Colab --> UC_Auto
+Colab --> UC_360
+Colab --> UC_Desempenho
+
+' --- Associações: Liderança ---
+Lider --> UC_Aval_Lider
+Lider --> UC_Dash
+Lider --> UC_Ranking
+
+' --- Associações: Administrador ---
+Admin --> UC_Users
+Admin --> UC_Skills
+Admin --> UC_Ciclos
+Admin --> UC_Dash
+Admin --> UC_Export 
+
+' --- Relacionamentos de Dependência (Include) ---
+' Para avaliar ou ver dash, o sistema inclui obrigatoriamente o Login
+UC_Auto ..> UC_Login : <<include>>
+UC_360 ..> UC_Login : <<include>>
+UC_Dash ..> UC_Login : <<include>>
+UC_Aval_Lider ..> UC_Login : <<include>>
+UC_Ciclos ..> UC_Notif : <<include>>
+UC_Notif ..> UC_Login : <<include>>
+
+
+' Para configurar skills, é obrigatório definir os critérios de cores (Regra SAGA)
+UC_Skills ..> UC_Cores : <<include>>
+
+' O gerenciamento de ciclos inclui o disparo de notificações
+
+
+' --- Relacionamentos de Dependência (Extend) ---
+' A exportação é uma funcionalidade opcional ao visualizar o Dashboard
+UC_Dash <.. UC_Export : <<extend>>
+
+@enduml
