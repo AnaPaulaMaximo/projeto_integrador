@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftGroup - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="conteiner-app">
+        <aside class="barra-lateral">
+            <div class="logotipo">
+                <div class="icone-logotipo"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                    <h2>SoftGroup</h2>
+                    <span>INTELLIGENCE SYSTEM</span>
+                </div>
+            </div>
+
+            <nav class="menu-navegacao">
+                <a href="dashboard.html" class="item-navegacao ativo"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                <a href="index.html" class="item-navegacao"><i class="fa-solid fa-users"></i> Colaboradores</a>
+                <a href="avaliacoes.html" class="item-navegacao"><i class="fa-solid fa-clipboard-check"></i> Avaliações</a>
+                <a href="relatorios.html" class="item-navegacao"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+            </nav>
+
+            <a href="relatorios.html" class="btn-primario btn-novo" style="text-decoration:none;text-align:center;"><i class="fa-solid fa-plus"></i> Novo Relatório</a>
+
+            <div class="menu-inferior">
+                <a href="#" class="item-navegacao" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="conteudo-principal">
+            <header class="barra-superior">
+                <div class="barra-superior-esq">
+                    <h1>Visão Geral do Sistema</h1>
+                </div>
+                <div class="barra-superior-dir">
+                    <div style="text-align:right; margin-right:12px;">
+                        <div style="font-weight:600;" data-user-nome>Usuário</div>
+                        <div class="texto-suave" style="font-size:0.85rem;" data-user-cargo>—</div>
+                    </div>
+                    <div class="foto-perfil avatar-iniciais" id="avatarIniciais" title="Perfil"></div>
+                </div>
+            </header>
+
+            <div class="grade-kpi">
+                <div class="cartao cartao-kpi">
+                    <div class="icone-kpi azul-claro"><i class="fa-solid fa-users"></i></div>
+                    <div class="info-kpi">
+                        <span class="texto-suave">Total de Colaboradores</span>
+                        <h2 id="statTotalColaboradores">—</h2>
+                        <span class="tendencia positiva" id="statEquipeAtual">Carregando equipe</span>
+                    </div>
+                </div>
+
+                <div class="cartao cartao-kpi">
+                    <div class="icone-kpi amarelo-claro"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <div class="info-kpi">
+                        <span class="texto-suave">Avaliações Pendentes</span>
+                        <h2 id="statPendentes">—</h2>
+                        <span class="tendencia neutra" id="statCicloAtual">Ciclo atual</span>
+                    </div>
+                </div>
+
+                <div class="cartao cartao-kpi">
+                    <div class="icone-kpi verde-claro"><i class="fa-solid fa-star"></i></div>
+                    <div class="info-kpi">
+                        <span class="texto-suave">Média Geral da Equipe</span>
+                        <h2 id="statMediaEquipe">—</h2>
+                        <span class="tendencia positiva" id="statNivelEquipe">Aguardando resultados</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cartao" style="margin-top: 24px;">
+                <div class="cabecalho-cartao">
+                    <h3>Evolução de Desempenho (Últimos 12 meses)</h3>
+                </div>
+                <div class="conteiner-grafico-linha" style="height: 300px; background-color: var(--fundo-ativo); border-radius: 8px; padding:16px;">
+                    <canvas id="graficoEquipeLinha"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

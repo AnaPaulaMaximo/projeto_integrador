@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftGroup - Configurações (Admin)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="configuracoes.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1 class="logo-title">SoftGroup</h1>
+                <span class="logo-subtitle">INTELLIGENCE SYSTEM</span>
+            </div>
+            <nav class="menu">
+                <a href="index.html"><div class="menu-content"><i class="fa-solid fa-border-all"></i> Dashboard</div></a>
+                <a href="avaliacoes.html"><div class="menu-content"><i class="fa-solid fa-certificate"></i> Avaliações</div></a>
+                <a href="colaboradores.html"><div class="menu-content"><i class="fa-solid fa-user-group"></i> Colaboradores</div></a>
+                <a href="relatorios.html"><div class="menu-content"><i class="fa-solid fa-chart-simple"></i> Relatórios</div></a>
+                <a href="configuracoes.html" class="ativo">
+                    <div class="menu-content"><i class="fa-solid fa-gear"></i> Configurações</div>
+                    <div class="indicador"></div>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="linkSuporte"><i class="fa-regular fa-circle-question"></i> Suporte</a>
+                <a href="#" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left"><h2>Configurações do Sistema</h2></div>
+                <div class="topbar-right">
+                    <div class="icones-acoes">
+                        <a href="index.html" title="Dashboard"><i class="fa-solid fa-bell"></i></a>
+                        <a href="configuracoes.html" title="Configurações" class="ativo"><i class="fa-solid fa-gear"></i></a>
+                    </div>
+                    <div class="avatar" id="avatarIniciais"></div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="main-grid" style="grid-template-columns: 1fr 1fr; gap:24px;">
+                    <!-- Softskills -->
+                    <div class="card p-0">
+                        <div class="card-header p-24 pb-0" style="display:flex; justify-content:space-between; align-items:center;">
+                            <h3>Softskills</h3>
+                            <button class="btn-link" id="btnNovaSoft"><i class="fa-solid fa-plus"></i> Nova</button>
+                        </div>
+                        <div class="table-responsive" style="margin-top: 16px;">
+                            <table class="table-ciclos">
+                                <thead>
+                                    <tr><th>NOME</th><th>DESCRIÇÃO</th><th>AÇÕES</th></tr>
+                                </thead>
+                                <tbody id="tbodySoft">
+                                    <tr><td colspan="3" style="text-align:center;color:#888;padding:1rem">Carregando...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Equipes -->
+                    <div class="card p-0">
+                        <div class="card-header p-24 pb-0" style="display:flex; justify-content:space-between; align-items:center;">
+                            <h3>Equipes</h3>
+                            <button class="btn-link" id="btnNovaEq"><i class="fa-solid fa-plus"></i> Nova</button>
+                        </div>
+                        <div class="table-responsive" style="margin-top: 16px;">
+                            <table class="table-ciclos">
+                                <thead>
+                                    <tr><th>NOME</th><th>MEMBROS</th><th>AÇÕES</th></tr>
+                                </thead>
+                                <tbody id="tbodyEq">
+                                    <tr><td colspan="3" style="text-align:center;color:#888;padding:1rem">Carregando...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: softskill -->
+    <div class="modal-backdrop" id="modalSoft" hidden>
+        <div class="modal">
+            <h3 id="tituloSoft">Nova Softskill</h3>
+            <form id="formSoft">
+                <input type="hidden" name="idSoftskill">
+                <label>Nome
+                    <input type="text" name="nome" required>
+                </label>
+                <label>Descrição
+                    <textarea name="descricao" rows="3" required></textarea>
+                </label>
+                <div class="modal-acoes">
+                    <button type="button" class="btn-outline" data-fechar="modalSoft" style="margin:0;width:auto;padding:10px 16px">Cancelar</button>
+                    <button type="submit" class="btn-novo" style="margin:0;padding:10px 16px">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: equipe -->
+    <div class="modal-backdrop" id="modalEq" hidden>
+        <div class="modal">
+            <h3 id="tituloEq">Nova Equipe</h3>
+            <form id="formEq">
+                <input type="hidden" name="idEquipe">
+                <label>Nome
+                    <input type="text" name="nome" required>
+                </label>
+                <div class="modal-acoes">
+                    <button type="button" class="btn-outline" data-fechar="modalEq" style="margin:0;width:auto;padding:10px 16px">Cancelar</button>
+                    <button type="submit" class="btn-novo" style="margin:0;padding:10px 16px">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <script src="configuracoes.js"></script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-// as requisições vão ficar aq

@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; 
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+/* Painel Esquerdo (Azul) */
+.painel-esquerdo {
+    flex: 1;
+    background-color: #0b57d0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.conteudo-centralizado {
+    text-align: center;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2.5rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.bloco-imagem img{
+    width: 100%;
+    height: 15rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+}
+
+.texto-esquerdo h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.texto-esquerdo p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+/* Painel Direito (Branco) */
+.painel-direito {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.conteudo-login {
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.painel-direito h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.painel-direito p {
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    color: #666;
+}
+
+/* Formulário de login por e-mail */
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.form-login label {
+    font-size: 0.85rem;
+    color: #444;
+    font-weight: 600;
+}
+
+.form-login input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-login input:focus {
+    border-color: #0b57d0;
+}
+
+.erro-login {
+    color: #d93025;
+    font-size: 0.85rem;
+    background: #fdecea;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+.botao-entrar {
+    margin-top: 6px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: #0b57d0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botao-entrar:hover     { background: #084cb5; }
+.botao-entrar:disabled  { background: #7ea8e0; cursor: wait; }
+
+.separador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #888;
+    font-size: 0.8rem;
+    margin: 1rem 0;
+}
+.separador::before,
+.separador::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+/* Botão Google */
+.botao-google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    color: #333;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.botao-google:hover {
+    background-color: #f8f8f8;
+}
+
+/* Rodapé */
+.rodape-login {
+    margin-top: auto;
+    padding-top: 3rem;
+}
+
+.rodape-login p {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.rodape-login a {
+    color: #0b57d0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rodape-login a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .painel-esquerdo, .painel-direito {
+        padding: 2rem;
+    }
+}
