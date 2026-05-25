@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftGroup - Ciclos de Avaliação (Admin)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="avaliacoes.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1 class="logo-title">SoftGroup</h1>
+                <span class="logo-subtitle">INTELLIGENCE SYSTEM</span>
+            </div>
+            <nav class="menu">
+                <a href="index.html"><div class="menu-content"><i class="fa-solid fa-border-all"></i> Dashboard</div></a>
+                <a href="avaliacoes.html" class="ativo">
+                    <div class="menu-content"><i class="fa-solid fa-certificate"></i> Avaliações</div>
+                    <div class="indicador"></div>
+                </a>
+                <a href="colaboradores.html"><div class="menu-content"><i class="fa-solid fa-user-group"></i> Colaboradores</div></a>
+                <a href="relatorios.html"><div class="menu-content"><i class="fa-solid fa-chart-simple"></i> Relatórios</div></a>
+                <a href="configuracoes.html"><div class="menu-content"><i class="fa-solid fa-gear"></i> Configurações</div></a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn-novo" id="btnNovoCiclo"><i class="fa-solid fa-plus"></i> Novo Ciclo</button>
+                <a href="#" id="linkSuporte"><i class="fa-regular fa-circle-question"></i> Suporte</a>
+                <a href="#" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h2>Ciclos de Avaliação</h2>
+                </div>
+                <div class="topbar-right">
+                    <button class="btn-adicionar" id="btnNovoCicloTop"><i class="fa-solid fa-plus"></i> Novo Ciclo</button>
+                    <div class="icones-acoes">
+                        <a href="index.html" title="Dashboard"><i class="fa-solid fa-bell"></i></a>
+                        <a href="configuracoes.html" title="Configurações"><i class="fa-solid fa-gear"></i></a>
+                    </div>
+                    <div class="avatar" id="avatarIniciais"></div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="stats-row" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Ciclos Abertos</span>
+                            <div class="stat-icon light-blue"><i class="fa-solid fa-spinner"></i></div>
+                        </div>
+                        <strong class="stat-value text-blue" id="statAbertos">—</strong>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Ciclos Fechados</span>
+                            <div class="stat-icon" style="background-color: var(--green-light); color: var(--green);"><i class="fa-solid fa-check-double"></i></div>
+                        </div>
+                        <strong class="stat-value" id="statFechados">—</strong>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span>Pendentes no Ciclo Atual</span>
+                            <div class="stat-icon light-red"><i class="fa-solid fa-stopwatch"></i></div>
+                        </div>
+                        <strong class="stat-value text-red" id="statPendentes">—</strong>
+                    </div>
+                </div>
+
+                <div class="card p-0 mt-24">
+                    <div class="card-header p-24 pb-0" style="display:flex; justify-content:space-between;">
+                        <h3>Gestão de Ciclos</h3>
+                    </div>
+                    <div class="table-responsive" style="margin-top: 16px;">
+                        <table class="table-ciclos">
+                            <thead>
+                                <tr>
+                                    <th>NOME</th>
+                                    <th>INÍCIO</th>
+                                    <th>FIM</th>
+                                    <th>STATUS</th>
+                                    <th>AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyCiclos">
+                                <tr><td colspan="5" style="text-align:center;color:#888;padding:1rem">Carregando...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal" hidden>
+        <div class="modal">
+            <h3 id="modalTitulo">Novo Ciclo</h3>
+            <form id="formCiclo">
+                <input type="hidden" name="idCiclo">
+                <label>Nome
+                    <input type="text" name="nome" required placeholder="Ex: Ciclo 2026.2">
+                </label>
+                <label>Data de início
+                    <input type="date" name="dataInicio" required>
+                </label>
+                <label>Data de fim
+                    <input type="date" name="dataFim" required>
+                </label>
+                <label>Status
+                    <select name="status">
+                        <option value="ABERTO">Aberto</option>
+                        <option value="FECHADO">Fechado</option>
+                    </select>
+                </label>
+                <div class="modal-acoes">
+                    <button type="button" class="btn-outline" id="btnCancelar" style="margin:0;width:auto;padding:10px 16px">Cancelar</button>
+                    <button type="submit" class="btn-novo" style="margin:0;padding:10px 16px">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <script src="avaliacoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftGroup - Colaboradores (Admin)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="colaboradores.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1 class="logo-title">SoftGroup</h1>
+                <span class="logo-subtitle">INTELLIGENCE SYSTEM</span>
+            </div>
+            <nav class="menu">
+                <a href="index.html">
+                    <div class="menu-content"><i class="fa-solid fa-border-all"></i> Dashboard</div>
+                </a>
+                <a href="avaliacoes.html">
+                    <div class="menu-content"><i class="fa-solid fa-certificate"></i> Avaliações</div>
+                </a>
+                <a href="colaboradores.html" class="ativo">
+                    <div class="menu-content"><i class="fa-solid fa-user-group"></i> Colaboradores</div>
+                    <div class="indicador"></div>
+                </a>
+                <a href="relatorios.html">
+                    <div class="menu-content"><i class="fa-solid fa-chart-simple"></i> Relatórios</div>
+                </a>
+                <a href="configuracoes.html">
+                    <div class="menu-content"><i class="fa-solid fa-gear"></i> Configurações</div>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn-novo" id="btnNovo"><i class="fa-solid fa-user-plus"></i> Novo Colaborador</button>
+                <a href="#" id="linkSuporte"><i class="fa-regular fa-circle-question"></i> Suporte</a>
+                <a href="#" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h2>Colaboradores</h2>
+                    <div class="busca">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="buscaUsuario" placeholder="Buscar colaborador...">
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <button class="btn-adicionar" id="btnAdicionarUsuario"><i class="fa-solid fa-user-plus"></i> Adicionar Usuário</button>
+                    <div class="icones-acoes">
+                        <a href="index.html" title="Dashboard"><i class="fa-solid fa-bell"></i></a>
+                        <a href="configuracoes.html" title="Configurações"><i class="fa-solid fa-gear"></i></a>
+                    </div>
+                    <div class="avatar" id="avatarIniciais"></div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="card p-0">
+                    <div class="card-header p-24 pb-0" style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>Lista de Usuários</h3>
+                        <select id="filtroPerfil" class="input-select">
+                            <option value="">Todos os perfis</option>
+                            <option value="ADMIN">Admin</option>
+                            <option value="LIDER">Líder</option>
+                            <option value="COLABORADOR">Colaborador</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive" style="margin-top: 16px;">
+                        <table class="table-ciclos">
+                            <thead>
+                                <tr>
+                                    <th>USUÁRIO</th>
+                                    <th>CARGO</th>
+                                    <th>PERFIL</th>
+                                    <th>STATUS</th>
+                                    <th>AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyUsuarios">
+                                <tr><td colspan="5" style="text-align:center;color:#888;padding:1rem">Carregando...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: criar / editar -->
+    <div class="modal-backdrop" id="modal" hidden>
+        <div class="modal">
+            <h3 id="modalTitulo">Novo Usuário</h3>
+            <form id="formUsuario">
+                <input type="hidden" name="id">
+                <label>Nome completo
+                    <input type="text" name="nome" required>
+                </label>
+                <label>E-mail
+                    <input type="email" name="email" required>
+                </label>
+                <label>Cargo
+                    <input type="text" name="cargo" required>
+                </label>
+                <label>Perfil
+                    <select name="tipoPerfil" required>
+                        <option value="COLABORADOR">Colaborador</option>
+                        <option value="LIDER">Líder</option>
+                        <option value="ADMIN">Administrador</option>
+                    </select>
+                </label>
+                <label>Equipes
+                    <select name="equipes" multiple size="4"></select>
+                </label>
+                <div class="modal-acoes">
+                    <button type="button" class="btn-outline" id="btnCancelar" style="margin:0;width:auto;padding:10px 16px">Cancelar</button>
+                    <button type="submit" class="btn-novo" id="btnSalvar" style="margin:0;padding:10px 16px">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <script src="colaboradores.js"></script>
+</body>
+</html>
