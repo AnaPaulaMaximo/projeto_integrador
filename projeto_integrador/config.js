@@ -5,7 +5,21 @@
   const LEGACY_API_BASE_KEY = 'EVALUASOFT_API_BASE_URL';
   const READY_KEY = 'SOFTGROUP_CONFIG_READY';
   const LEGACY_READY_KEY = 'EVALUASOFT_CONFIG_READY';
-  const DEFAULT_API_BASE_URL = 'http://localhost:8080';
+  const DEFAULT_API_BASE_URL = calcularDefaultApiBase();
+
+  function calcularDefaultApiBase() {
+    try {
+      const host = (global.location && global.location.hostname) || '';
+      // Quando o frontend roda em localhost OU 127.0.0.1, espelha o mesmo
+      // hostname para a API. Isso evita que o cookie de sessao caia em
+      // "cross-site" (localhost vs 127.0.0.1 sao tratados como sites
+      // diferentes pelo navegador) e seja bloqueado pelo SameSite=Lax.
+      if (host === 'localhost' || host === '127.0.0.1') {
+        return 'http://' + host + ':8080';
+      }
+    } catch (_) {}
+    return 'http://localhost:8080';
+  }
 
   const ready = carregarEnv();
   global[READY_KEY] = ready;
