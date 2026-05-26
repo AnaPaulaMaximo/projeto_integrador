@@ -96,7 +96,12 @@
   function baseLocalPadrao() {
     const host = location.hostname;
     const ehLocal = !host || host === 'localhost' || host === '127.0.0.1';
-    if (ehLocal && location.port !== '8080') return 'http://localhost:8080';
+    // Usa o mesmo hostname da pagina (localhost OU 127.0.0.1) para que o
+    // cookie de sessao seja considerado same-site e enviado nas requisicoes.
+    if (ehLocal && location.port !== '8080') {
+      const hostnameApi = host || 'localhost';
+      return 'http://' + hostnameApi + ':8080';
+    }
     return '';
   }
 
