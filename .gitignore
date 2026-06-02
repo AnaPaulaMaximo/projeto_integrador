@@ -1,0 +1,14 @@
+# Build artifacts
+softgroup/target/
+
+# Logs
+*.log
+softgroup-run.*.log
+
+# Claude Code local config
+.claude/
+
+# IDE
+.idea/
+.vscode/
+*.iml

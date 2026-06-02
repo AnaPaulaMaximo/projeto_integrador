@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftGroup - Avaliações</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="avaliacoes.css">
+</head>
+<body>
+    <div class="conteiner-app">
+        <aside class="barra-lateral">
+            <div class="logotipo">
+                <div class="icone-logotipo"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                    <h2>SoftGroup</h2>
+                    <span>INTELLIGENCE SYSTEM</span>
+                </div>
+            </div>
+
+            <nav class="menu-navegacao">
+                <a href="dashboard.html" class="item-navegacao"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                <a href="index.html" class="item-navegacao"><i class="fa-solid fa-users"></i> Colaboradores</a>
+                <a href="avaliacoes.html" class="item-navegacao ativo"><i class="fa-solid fa-clipboard-check"></i> Avaliações</a>
+                <a href="relatorios.html" class="item-navegacao"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+            </nav>
+
+            <a href="relatorios.html" class="btn-primario btn-novo" style="text-decoration:none;text-align:center;"><i class="fa-solid fa-plus"></i> Novo Relatório</a>
+
+            <div class="menu-inferior">
+                <a href="#" class="item-navegacao" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="conteudo-principal">
+            <header class="barra-superior">
+                <div class="barra-superior-esq">
+                    <h1>Gestão de Avaliações</h1>
+                </div>
+                <div class="barra-superior-dir">
+                    <button id="btnNovaAvaliacao" class="btn-primario"><i class="fa-solid fa-file-signature"></i> Nova Avaliação</button>
+                    <div class="foto-perfil avatar-iniciais" id="avatarIniciais" title="Perfil"></div>
+                </div>
+            </header>
+
+            <div class="grade-kpi" style="margin-bottom: 24px;">
+                <div class="cartao cartao-kpi">
+                    <div class="icone-kpi azul-claro"><i class="fa-solid fa-spinner"></i></div>
+                    <div class="info-kpi">
+                        <span class="texto-suave">Ciclos em Andamento</span>
+                        <h2 id="statCiclosAbertos">—</h2>
+                        <span class="tendencia neutra" id="statCicloAtual">Carregando ciclo</span>
+                    </div>
+                </div>
+
+                <div class="cartao cartao-kpi">
+                    <div class="icone-kpi amarelo-claro"><i class="fa-solid fa-user-clock"></i></div>
+                    <div class="info-kpi">
+                        <span class="texto-suave">Pendências da Liderança</span>
+                        <h2 id="statPendencias">—</h2>
+                        <span class="tendencia positiva" id="statPrazo">Aguardando ciclo</span>
+                    </div>
+                </div>
+
+                <div class="cartao cartao-kpi">
+                    <div class="icone-kpi verde-claro"><i class="fa-solid fa-check-double"></i></div>
+                    <div class="info-kpi">
+                        <span class="texto-suave">Concluídas (Equipe)</span>
+                        <h2 id="statConcluido">—</h2>
+                        <span class="tendencia positiva" id="statConcluidoDesc">Carregando progresso</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cartao cartao-tabela">
+                <div class="cabecalho-cartao cabecalho-tabela">
+                    <div>
+                        <h3>Avaliações Ativas</h3>
+                        <p class="texto-suave">Acompanhe o status das avaliações do seu time</p>
+                    </div>
+                </div>
+
+                <table class="tabela-classificacao">
+                    <thead>
+                        <tr>
+                            <th>TÍTULO DA AVALIAÇÃO</th>
+                            <th>TIPO</th>
+                            <th>PRAZO</th>
+                            <th>STATUS DA EQUIPE</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyAvaliacoes">
+                        <tr>
+                            <td colspan="5" style="text-align:center;color:#888;padding:1rem">Carregando avaliações da equipe...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalAvaliacao" class="modal-fundo">
+        <div class="modal-conteudo">
+            <div class="cabecalho-modal">
+                <h3 id="tituloModalAvaliacao">Registrar Avaliação da Liderança</h3>
+                <button class="btn-fechar" id="iconeFecharAvaliacao"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form class="corpo-modal" id="formAvaliacao">
+                <div class="grupo-formulario">
+                    <label for="tipoAvaliacao">Tipo de Avaliação</label>
+                    <select id="tipoAvaliacao" class="controle-formulario">
+                        <option value="LIDER">Avaliação da Liderança</option>
+                        <option value="360">Avaliação 360°</option>
+                    </select>
+                </div>
+                <div class="grupo-formulario">
+                    <label for="avaliadoAvaliacao">Colaborador avaliado</label>
+                    <select id="avaliadoAvaliacao" class="controle-formulario"></select>
+                </div>
+                <div class="grupo-formulario">
+                    <label for="prazoAvaliacao">Ciclo</label>
+                    <input type="text" id="prazoAvaliacao" class="controle-formulario" readonly>
+                </div>
+                <div class="grupo-formulario">
+                    <label style="display:flex;align-items:center;gap:8px;">
+                        <input type="checkbox" id="anonimatoAvaliacao">
+                        Enviar 360° como anônima
+                    </label>
+                </div>
+                <div class="grupo-formulario">
+                    <label>Avalie cada soft skill</label>
+                    <div id="listaSoftskillsForm"></div>
+                </div>
+            </form>
+            <div class="rodape-modal">
+                <button class="btn-secundario" id="btnCancelarAvaliacao">Cancelar</button>
+                <button class="btn-primario" id="btnSalvarAvaliacao">Salvar Avaliação</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <script src="avaliacoes.js"></script>
+</body>
+</html>

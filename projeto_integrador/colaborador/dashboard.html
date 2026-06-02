@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftGroup - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="conteiner-app">
+        
+        <aside class="barra-lateral">
+            <div class="logotipo">
+                <div class="icone-logotipo"><i class="fa-solid fa-brain"></i></div>
+                <div>
+                    <h2>SoftGroup</h2>
+                    <span>INTELLIGENCE SYSTEM</span>
+                </div>
+            </div>
+
+            <nav class="menu-navegacao">
+                <a href="dashboard.html" class="item-navegacao ativo"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                <a href="index.html" class="item-navegacao"><i class="fa-solid fa-users"></i> Colaboradores</a>
+                <a href="avaliacoes.html" class="item-navegacao"><i class="fa-solid fa-clipboard-check"></i> Avaliações</a>
+                <a href="relatorios.html" class="item-navegacao"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+            </nav>
+
+            <a href="relatorios.html" class="btn-primario btn-novo" style="text-decoration:none;text-align:center;"><i class="fa-solid fa-plus"></i> Novo Relatório</a>
+
+            <div class="menu-inferior">
+                <a href="#" class="item-navegacao" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+            </div>
+        </aside>
+
+        <main class="conteudo-principal">
+            
+            <header class="barra-superior">
+                <div class="barra-superior-esq">
+                    <h1>Meu Desempenho</h1>
+                </div>
+                <div class="barra-superior-dir" style="gap: 24px;">
+                    <div class="user-profile" style="display: flex; align-items: center; gap: 12px; text-align: right;">
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.9rem;" data-user-nome>Usuário</div>
+                            <div style="font-size: 0.8rem; color: var(--texto-suave);" data-user-cargo>—</div>
+                        </div>
+                        <div class="foto-perfil avatar-iniciais" id="avatarIniciais" title="Perfil"></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="banner">
+                <div class="banner-info">
+                    <div class="banner-icon">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <div class="banner-text">
+                        <h2>Olá, <span data-user-primeiro-nome>Usuário</span>!</h2>
+                        <p id="bannerCicloTexto">Carregando informações do ciclo atual...</p>
+                    </div>
+                </div>
+                <button class="btn-primario" id="btnVerPrazos">Ver Prazos</button>
+            </div>
+
+            <div class="dashboard-grid">
+                
+                <div class="col-left">
+                    <div class="cartao">
+                        <div class="cabecalho-cartao" style="margin-bottom: 24px;">
+                            <div>
+                                <span class="card-title" style="font-weight: 600; font-size: 1.1rem;">Seu Resultado Consolidado</span><br>
+                                <span class="card-subtitle" style="font-size: 0.85rem; color: var(--texto-suave);" id="resultadoCicloLabel">Carregando ciclo...</span>
+                            </div>
+                            <i class="fa-solid fa-ellipsis-vertical btn-icone"></i>
+                        </div>
+
+                        <div class="progress-group">
+                            <div class="progress-labels">
+                                <span>Autoavaliação</span>
+                                <span class="val blue" id="valorAuto">—</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-blue" id="barraAuto" style="width:0%"></div></div>
+                        </div>
+
+                        <div class="progress-group">
+                            <div class="progress-labels">
+                                <span>Avaliação do Líder</span>
+                                <span class="val green" id="valorLider">—</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-green" id="barraLider" style="width:0%"></div></div>
+                        </div>
+
+                        <div class="progress-group">
+                            <div class="progress-labels">
+                                <span>Média 360° (Pares)</span>
+                                <span class="val yellow" id="valor360">—</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill fill-yellow" id="barra360" style="width:0%"></div></div>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-label">Média Global</div>
+                                <div class="stat-value" id="mediaGlobal">—</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Ranking da Equipe</div>
+                                <div class="stat-value" id="percentilEquipe">—</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Status</div>
+                                <div class="stat-value green" id="statusGeral">—</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cartao">
+                        <div class="cabecalho-cartao">
+                            <span style="font-weight: 600; font-size: 1.1rem;">Evolução Histórica</span>
+                            <div class="chart-legend"><span></span> Pontuação</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="evolutionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-right">
+                    <div class="cartao">
+                        <div class="cabecalho-cartao">
+                            <span style="font-weight: 600; font-size: 1.1rem;"><i class="fa-solid fa-clipboard-check" style="color: var(--primaria); margin-right: 8px;"></i> Tarefas Pendentes</span>
+                        </div>
+                        
+                        <div class="task-list" id="listaPendencias">
+                            <div class="task-item">
+                                <div class="custom-checkbox"></div>
+                                <div class="task-info">
+                                    <h4>Carregando pendências...</h4>
+                                    <p>Aguarde um instante</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-primario btn-full" id="btnIrAvaliacoes" style="width: 100%; justify-content: center;">Iniciar Avaliações <i class="fa-solid fa-chevron-right" style="font-size: 12px;"></i></button>
+                    </div>
+
+                    <div class="cartao">
+                        <div class="cabecalho-cartao">
+                            <span style="font-weight: 600; font-size: 1.1rem;">PDI</span>
+                            <i class="fa-solid fa-pen-to-square btn-icone" style="color: var(--primaria);"></i>
+                        </div>
+
+                        <div class="pdi-list" id="listaPdi">
+                            <div class="pdi-item">
+                                <div class="pdi-header">
+                                    <span class="pdi-title">Carregando recomendações</span>
+                                    <span class="badge warning">Aguarde</span>
+                                </div>
+                                <p class="pdi-quote">As recomendações de desenvolvimento serão montadas a partir dos seus resultados.</p>
+                            </div>
+                        </div>
+
+                        <button class="btn-secundario" id="btnExportarRelatorio" style="width: 100%;"><i class="fa-solid fa-file-pdf"></i> Exportar Relatório CSV</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
