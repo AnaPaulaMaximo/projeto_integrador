@@ -1,0 +1,82 @@
+flowchart TD
+    START([Usuario abre http://localhost:8080/]) --> CHECK{Sessao valida?<br/>GET /api/me}
+    CHECK -->|Sim| REDIR[Redireciona p/ pagina do perfil]
+    CHECK -->|Nao| TELA[Tela de login]
+
+    TELA --> EMAIL[Login por e-mail demo]
+    TELA --> GOOG[Login com Google OAuth2]
+
+    EMAIL --> POST["POST /api/auth/login"]
+    POST --> VAL{Validacoes}
+    VAL -->|vazio| E400[400 e-mail obrigatorio]
+    VAL -->|nao existe| E401[401 usuario nao encontrado]
+    VAL -->|INATIVO| E403[403 usuario inativo]
+    VAL -->|OK| AUTH[Cria sessao + ROLE_PERFIL<br/>cookie JSESSIONID]
+
+    GOOG --> OAUTH{Profile oauth ativo?}
+    OAUTH -->|Nao| GERR[Redireciona ?error=true]
+    OAUTH -->|Sim| AUTH
+
+    AUTH --> DEST{tipoPerfil}
+    DEST -->|ADMIN| PA[Painel ADMIN]
+    DEST -->|LIDER| PL[Painel LIDER]
+    DEST -->|COLABORADOR| PC[Painel COLABORADOR]
+
+    %% ADMIN
+    PA --> A1[Gerir colaboradores e equipes]
+    PA --> A2[Criar / abrir / fechar ciclos]
+    PA --> A3[Cadastrar Soft Skills]
+    PA --> A4[Ver ranking geral e dashboards]
+
+    %% LIDER
+    PL --> L1[Ranking e dashboards da equipe]
+    PL --> L2[Avaliacao LIDER dos liderados]
+
+    %% COLABORADOR
+    PC --> C1[Autoavaliacao AUTO]
+    PC --> C2[Avaliacao 360 de colega]
+    PC --> C3[Ver proprio dashboard]
+
+    %% Fluxo de avaliacao
+    A2 --> AVALFLOW
+    L2 --> AVALFLOW
+    C1 --> AVALFLOW
+    C2 --> AVALFLOW
+
+    AVALFLOW["POST /api/avaliacoes"] --> CICLO{Ciclo existe<br/>e ABERTO?}
+    CICLO -->|nao existe| AVN[404 ciclo nao encontrado]
+    CICLO -->|FECHADO| AVF[400 ciclo fechado]
+    CICLO -->|OK| TIPO{Tipo}
+
+    TIPO -->|AUTO| KA{avaliador = avaliado?}
+    KA -->|nao| KAE[400 deve ser do proprio]
+    KA -->|sim| DUP
+
+    TIPO -->|LIDER| KL{lider da equipe<br/>ou admin?}
+    KL -->|nao| KLE[403 so lideranca]
+    KL -->|sim| DUP
+
+    TIPO -->|360| K3{mesma equipe e<br/>outra pessoa?}
+    K3 -->|nao| K3E[403/400 regra 360]
+    K3 -->|sim| DUP
+
+    DUP{Ja existe?} -->|sim| DUPE[409 ja registrada]
+    DUP -->|nao| SAVE[Salva avaliacao<br/>nota + tipo + data]
+
+    SAVE --> CALC[Media por soft skill]
+    CALC --> NIVEL{Faixa de nivel}
+    NIVEL -->|>=76| AZUL[Azul]
+    NIVEL -->|51-75| VERDE[Verde]
+    NIVEL -->|26-50| AMAR[Amarelo]
+    NIVEL -->|0-25| VERM[Vermelho]
+
+    CALC --> RANK[Ranking do ciclo]
+    RANK --> EXPORT[Exportar PDF / Excel / CSV]
+    NIVEL --> EXPORT
+
+    classDef erro fill:#fee2e2,stroke:#dc2626,color:#991b1b;
+    classDef ok fill:#dcfce7,stroke:#16a34a,color:#14532d;
+    classDef perfil fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
+    class E400,E401,E403,GERR,AVN,AVF,KAE,KLE,K3E,DUPE erro;
+    class SAVE,AUTH,EXPORT ok;
+    class PA,PL,PC perfil;
