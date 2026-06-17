@@ -155,3 +155,74 @@ body { background-color: var(--bg-color); color: var(--text-dark); display: flex
 
 .btn-outline { background-color: transparent; border: 1px solid var(--border-color); padding: 12px; width: calc(100% - 48px); margin: 0 24px 24px; border-radius: 8px; font-weight: 600; color: var(--text-dark); font-size: 13px; cursor: pointer; transition: 0.2s;}
 .btn-outline:hover { background-color: #f9fafb; border-color: #d1d5db; }
+
+/* ==========================================================
+   Modal (Novo/Editar Ciclo)
+   O JS controla a visibilidade pelo atributo [hidden].
+   ========================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  padding: 16px;
+}
+.modal-backdrop[hidden] { display: none; }
+.modal-backdrop .modal {
+  background-color: var(--sidebar-bg);
+  width: 100%;
+  max-width: 440px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  /* Limita a altura e permite rolagem interna se o conteudo for grande. */
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-backdrop .modal h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+.modal-backdrop .modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.modal-backdrop .modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.modal-backdrop .modal input,
+.modal-backdrop .modal select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-dark);
+  background-color: #fff;
+  outline: none;
+  font-weight: 400;
+  transition: border-color 0.2s;
+}
+.modal-backdrop .modal input:focus,
+.modal-backdrop .modal select:focus {
+  border-color: var(--primary);
+}
+.modal-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}

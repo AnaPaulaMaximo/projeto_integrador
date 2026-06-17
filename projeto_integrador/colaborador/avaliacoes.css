@@ -278,3 +278,104 @@ body {
   background-color: var(--emblema-azul-fundo);
   color: var(--emblema-azul-texto);
 }
+
+/* ==========================================================
+   Modal de avaliacao (Registrar/Responder Avaliacao)
+   ========================================================== */
+.modal-fundo {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+.modal-conteudo {
+  background-color: var(--branco);
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: deslizarCima 0.3s ease-out;
+  /* Limita a altura do modal e mantem cabecalho/rodape fixos enquanto o
+     corpo (lista de soft skills) rola internamente. */
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
+}
+@keyframes deslizarCima {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.cabecalho-modal {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--borda);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-fechar {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.btn-fechar:hover {
+  color: var(--texto-principal);
+}
+.corpo-modal {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* Faz apenas o corpo do modal rolar quando o conteudo e maior que a tela. */
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.grupo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.grupo-formulario label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto-principal);
+}
+.controle-formulario {
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--texto-principal);
+  outline: none;
+  background-color: var(--branco);
+  transition: border-color 0.2s;
+}
+.controle-formulario:focus {
+  border-color: var(--primaria);
+}
+.rodape-modal {
+  padding: 16px 24px;
+  border-top: 1px solid var(--borda);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background-color: var(--fundo-lateral);
+  border-radius: 0 0 12px 12px;
+}

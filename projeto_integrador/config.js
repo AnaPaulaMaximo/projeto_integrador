@@ -10,11 +10,14 @@
   function calcularDefaultApiBase() {
     try {
       const host = (global.location && global.location.hostname) || '';
-      // Quando o frontend roda em localhost OU 127.0.0.1, espelha o mesmo
-      // hostname para a API. Isso evita que o cookie de sessao caia em
-      // "cross-site" (localhost vs 127.0.0.1 sao tratados como sites
-      // diferentes pelo navegador) e seja bloqueado pelo SameSite=Lax.
-      if (host === 'localhost' || host === '127.0.0.1') {
+      // Espelha o mesmo hostname que esta na barra do navegador para a API.
+      // - Em localhost/127.0.0.1, evita que o cookie de sessao caia em
+      //   "cross-site" e seja bloqueado pelo SameSite=Lax.
+      // - Quando o frontend e aberto por outro computador na rede local
+      //   (ex.: http://10.109.3.45:5500), a API passa a apontar para o
+      //   MESMO IP na porta 8080 (http://10.109.3.45:8080), em vez de
+      //   "localhost", que no outro PC seria a propria maquina dele.
+      if (host) {
         return 'http://' + host + ':8080';
       }
     } catch (_) {}

@@ -306,6 +306,12 @@ body {
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   animation: deslizarCima 0.3s ease-out;
+  /* Limita a altura do modal e mantem cabecalho/rodape fixos enquanto o
+     corpo (lista de soft skills) rola internamente. */
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
 }
 @keyframes deslizarCima {
   from {
@@ -340,6 +346,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  /* Faz apenas o corpo do modal rolar quando o conteudo e maior que a tela. */
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .grupo-formulario {
   display: flex;
