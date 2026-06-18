@@ -1,0 +1,72 @@
+/* ============================================================
+   RESPONSIVIDADE GLOBAL — rede de seguranca
+   Carregado em TODAS as paginas, depois do CSS especifico.
+   Garante que todo o conteudo (incluindo o injetado via JavaScript)
+   se adapte a celular, tablet, notebook e PC, mantendo o design.
+   Usa !important e seletores de atributo [style*=...] para
+   sobrepor estilos inline definidos no HTML e gerados pelo JS.
+   ============================================================ */
+
+/* Evita rolagem horizontal indesejada da pagina inteira */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* Midia e elementos fluidos nunca estouram a largura da tela */
+img, canvas, svg, video, iframe { max-width: 100%; height: auto; }
+
+/* Tabelas largas rolam horizontalmente dentro do seu cartao */
+.table-responsive,
+.cartao-tabela,
+.tabela-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ===================== TABLET / CELULAR ===================== */
+@media (max-width: 768px) {
+  /* Menu de navegacao: quebra em varias linhas, nada e cortado */
+  .menu,
+  .menu-navegacao {
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+  }
+  .menu a,
+  .item-navegacao { flex: 0 0 auto !important; }
+
+  /* Tabelas: largura minima garante a leitura e ativa a rolagem
+     horizontal no container (.table-responsive / .cartao-tabela) */
+  .table-ciclos,
+  .tabela-classificacao { min-width: 560px; }
+  .cartao-tabela { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Cabecalhos, acoes e rodapes quebram linha em vez de estourar.
+     Resolve botoes como "+ Nova" sendo cortados na lateral. */
+  .acoes-tabela,
+  .card-header,
+  .cabecalho-cartao,
+  .cabecalho-tabela,
+  .conteiner-paginacao,
+  .modal-acoes,
+  .rodape-modal,
+  .cabecalho-modal { flex-wrap: wrap; gap: 12px; }
+
+  /* Campos de formulario e selects ocupam a largura toda */
+  .controle-formulario,
+  .input-select,
+  .selecao-equipe { width: 100% !important; max-width: 100%; }
+
+  /* Modais com margem nas bordas e rolagem interna */
+  .modal,
+  .modal-conteudo { max-height: 90vh; overflow-y: auto; }
+  .modal-fundo,
+  .modal-backdrop { padding: 16px; }
+}
+
+/* ========================= CELULAR ========================= */
+@media (max-width: 600px) {
+  /* Qualquer grade definida via style inline — no HTML OU criada
+     pelo JavaScript (ex.: "grid-template-columns:1fr 220px") —
+     passa a ter uma unica coluna. */
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+
+  /* Cartoes/elementos com largura fixa em px definida inline
+     passam a se ajustar a tela. */
+  [style*="width: 200px"],
+  [style*="width:200px"] { width: 100% !important; }
+}
