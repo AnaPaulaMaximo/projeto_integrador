@@ -70,3 +70,70 @@ img, canvas, svg, video, iframe { max-width: 100%; height: auto; }
   [style*="width: 200px"],
   [style*="width:200px"] { width: 100% !important; }
 }
+
+/* ============================================================
+   COMPONENTES — ajustes finos para que cada bloco se reorganize
+   no mobile sem quebrar o design.
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Barras superiores: titulo e acoes empilham em largura total */
+  .barra-superior,
+  .topbar { align-items: stretch; }
+  .barra-superior-esq,
+  .barra-superior-dir,
+  .topbar-left,
+  .topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Banner do dashboard: icone/texto e botao empilham */
+  .banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .banner-info { flex-wrap: wrap; }
+  .banner .btn-primario { width: 100%; justify-content: center; }
+
+  /* Linhas com "espaco entre" quebram quando nao cabem */
+  .rodape-cartao,
+  .progress-labels,
+  .legenda-grafico,
+  .rotulos-distribuicao,
+  .chart-legend,
+  .stat-header,
+  .adesao-valor,
+  .user-profile { flex-wrap: wrap; }
+
+  /* Botoes de acao ocupam a largura e centralizam o conteudo */
+  .acoes-tabela .btn-primario,
+  .acoes-tabela .btn-secundario { flex: 1 1 auto; justify-content: center; }
+
+  /* KPIs e cartoes com icone+texto continuam alinhados ao quebrar */
+  .cartao-kpi,
+  .stat-card,
+  .insight-card { width: 100%; }
+}
+
+/* ========================= CELULAR ========================= */
+@media (max-width: 480px) {
+  /* Respiro menor nas areas de conteudo */
+  .conteudo-principal,
+  .dashboard-content { padding: 14px !important; }
+  .cartao,
+  .card,
+  .stat-card,
+  .insight-card { padding: 16px; }
+  .banner { padding: 18px; }
+
+  /* Numeros e titulos grandes reduzem para caber */
+  .info-kpi h2 { font-size: 1.4rem; }
+  .stat-value { font-size: 1.3rem; }
+  .barra-superior-esq h1,
+  .topbar-left h2 { font-size: 1.15rem; }
+  .banner-text h2 { font-size: 1.05rem; }
+
+  /* KPIs em coluna unica no celular */
+  .grade-kpi { grid-template-columns: 1fr !important; }
+}
