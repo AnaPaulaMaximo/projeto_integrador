@@ -16,7 +16,17 @@ img, canvas, svg, video, iframe { max-width: 100%; height: auto; }
 /* Tabelas largas rolam horizontalmente dentro do seu cartao */
 .table-responsive,
 .cartao-tabela,
-.tabela-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tabela-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; }
+
+/* Impede "grid/flex blowout": itens de grid/flex tem min-width:auto
+   por padrao, o que faz o min-content de filhos largos (ex.: tabelas
+   com min-width) estourar a coluna. Forcar min-width:0 deixa a coluna
+   encolher e o conteudo largo rolar dentro do seu proprio container. */
+.main-grid, .stats-row, .insights-row, .main-grid > *, .stats-row > *,
+.insights-row > *, .col-left, .col-right,
+.grade-painel, .dashboard-grid, .grade-kpi, .stats-grid,
+.grade-painel > *, .dashboard-grid > *, .grade-kpi > *, .stats-grid > *,
+.card, .cartao, .cartao-kpi, .stat-card, .insight-card { min-width: 0; }
 
 /* ===================== TABLET / CELULAR ===================== */
 @media (max-width: 768px) {
